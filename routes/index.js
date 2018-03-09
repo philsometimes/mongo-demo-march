@@ -3,14 +3,17 @@ var router = express.Router();
 var FavoriteColor = require('../models/colors.js')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  FavoriteColor.find({}, function(err, data){
-    var myData = data;
-    console.log(JSON.stringify(myData, null, 4));
-    res.render('index', { title: 'Express', subtitle:'stuff', data: myData });
-  })
-
+// router.get('/', function(req, res, next) {
+//   FavoriteColor.find({}, function(err, data){
+//     var myData = data;
+//     console.log(JSON.stringify(myData, null, 4));
+//     res.render('index', { title: 'Express', subtitle:'stuff', data: myData });
+//   })
+router.get('/',function(req,res,next){
+  res.send("this works!")
 });
+//
+// });
 
 /* POST form contents */
 router.post('/send', function(req, res, next){
