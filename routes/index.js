@@ -19,7 +19,7 @@ router.get('/',function(req,res,next){
 router.post('/thisisadrill-slash', function(req,res,next){
   console.log("got a request: ");
   console.log(JSON.stringify(req.body, null, 4));
-  res.send('just received a message. will do more soon.')
+  res.send("phil's baby slack app. will do more soon.")
 })
 
 /* POST form contents */
