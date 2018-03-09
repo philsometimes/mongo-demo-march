@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
     var myData = data;
     console.log(JSON.stringify(myData, null, 4));
     res.render('index', { title: 'Express', subtitle:'stuff', data: myData });
-  })}
+  })
 })
 
 // router.get('/',function(req,res,next){
