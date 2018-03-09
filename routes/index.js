@@ -15,6 +15,13 @@ router.get('/',function(req,res,next){
 //
 // });
 
+/*slash command stuff*/
+router.post('/thisisadrill-slash', function(req,res,next){
+  console.log("got a request: ");
+  console.log(JSON.stringify(req.body, null, 4));
+  res.send('just received a message. will do more soon.')
+})
+
 /* POST form contents */
 router.post('/send', function(req, res, next){
   // res.send('got your data');
