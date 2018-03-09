@@ -4,13 +4,18 @@ var FavoriteColor = require('../models/colors.js')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  FavoriteColor.find({}, function(err, data){
-    var myData = data;
-    console.log(JSON.stringify(myData, null, 4));
-    res.render('index', { title: 'Express', subtitle:'stuff', data: myData });
-  })
+  // FavoriteColor.find({}, function(err, data){
+  //   var myData = data;
+  //   console.log(JSON.stringify(myData, null, 4));
+  //   res.render('index', { title: 'Express', subtitle:'stuff', data: myData });
+  // })
+  res.send("phil's baby slack app. will do more soon.")
+
 })
 
+
+
+/*})
 // router.get('/',function(req,res,next){
 //   res.send("this works!")
 // });
