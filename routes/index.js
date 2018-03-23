@@ -4,12 +4,22 @@ var FavoriteColor = require('../models/colors.js')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.render('index', {title: 'Index', author: 'Phil'})
+})
+
+/* GET mongo colors. */
+router.get('/mongocolors', function(req, res, next) {
   FavoriteColor.find({}, function(err, data){
     var myData = data;
     console.log(JSON.stringify(myData, null, 4));
-    res.render('index', { title: 'Express', subtitle:'stuff', data: myData });
+    res.render('mongocolors', { title: 'Mongo colors', subtitle:'Mongo colors', data: myData });
   })
 
+})
+
+/* GET exquisite corpse. */
+router.get('/tastefulcadaver', function(req, res, next){
+  res.render('tastefulcadaver', {title: 'Tasteful cadaver'})
 })
 
 

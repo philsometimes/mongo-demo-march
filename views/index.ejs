@@ -6,23 +6,10 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Hi! This is <%= subtitle %></p>
-    <form action="/send" method="post">
-      <label for="POST-name">Name:</label>
-      <input id="POST-name" type="text" name="name">
-      <br>
-      <label for="favoritecolor">Enter favorite color:</label>
-      <input id="favoritecolor" type="text" name="favoritecolor">
-      <br>
-      <input type="submit" value="Save">
-    </form>
+    <p>Hi! This is some stuff <%= author %> made</p>
+    
     <ul>
-      <% for (var i=0; i<data.length; i++){ %>
-        <li>
-          <%= data[i].userName %> = <%=
-          data[i].favoriteColor %>
-        </li>
-        <% } %>
+      <li>stuff</li>
     </ul>
 
   </body>
