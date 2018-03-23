@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var FavoriteColor = require('../models/colors.js')
+var TastefulPart = require('../models/tastefulparts.js')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,9 +20,12 @@ router.get('/mongocolors', function(req, res, next) {
 
 /* GET exquisite corpse. */
 router.get('/tastefulcadaver', function(req, res, next){
-  res.render('tastefulcadaver', {title: 'Tasteful cadaver'})
+  TastefulPart.find({}, function(err, data){
+    var tastefulData = data;
+    console.log(JSON.stringify(tastefulData, null, 4));
+    res.render('tastefulcadaver', { title: 'Tasteful cadaver', data: tastefulData });
+  })
 })
-
 
 
 /*})
@@ -36,14 +40,14 @@ router.post('/thisisadrill-slash', function(req,res,next){
   res.send("phil's baby slack app. will do more soon.")
 })
 
-/* POST form contents */
-router.post('/send', function(req, res, next){
+/* POST color form contents */
+router.post('/sendcolor', function(req, res, next){
   // res.send('got your data');
-  res.render('backtrack', {message:'got your data', backtext:'back to index'});
-  console.log('got some data');
+  res.render('backtrack', {message:'got it!', backtext:'back to previous'});
+  console.log('got some color data');
   console.log(JSON.stringify(req.body, null, 4));
   var newFavoriteColor = new FavoriteColor({
-    userName: req.body.name,
+    colorUserName: req.body.name,
     favoriteColor: req.body.favoritecolor
   });
   console.log(JSON.stringify(newFavoriteColor, null, 4));
@@ -53,7 +57,29 @@ router.post('/send', function(req, res, next){
       console.log(err)
     }
     else {
-      console.log('saved '+ newFavoriteColor.userName + "'s favorite color to the db");
+      console.log('saved '+ newFavoriteColor.coloruserName + "'s favorite color to the db");
+    }
+  })
+})
+
+/* POST tasteful form contents */
+router.post('/sendtaste', function(req, res, next){
+  // res.send('got your data');
+  res.render('backtrack', {message:'got it!', backtext:'back to previous'});
+  console.log('got some tasteful data');
+  console.log(JSON.stringify(req.body, null, 4));
+  var newTastefulPart = new TastefulPart({
+    tastefulUserName: req.body.name,
+    newPart: req.body.newpart
+  });
+  console.log(JSON.stringify(newTastefulPart, null, 4));
+
+  newTastefulPart.save(function(err){
+    if (err){
+      console.log(err)
+    }
+    else {
+      console.log('saved '+ newTastefulPart.tastefulUserName + "'s new word to the db");
     }
   })
 })

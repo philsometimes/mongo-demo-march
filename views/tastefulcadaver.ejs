@@ -7,23 +7,23 @@
   <body>
     <h1><%= title %></h1>
     <p>This is an implementation of the <a href="https://en.wikipedia.org/wiki/Exquisite_corpse">exquisite corpse</a>. </p>
-    <form action="/send" method="post">
+    <form action="/sendtaste" method="post">
       <label for="POST-name">Name:</label>
       <input id="POST-name" type="text" name="name">
       <br>
-      <label for="favoritecolor">Enter favorite color:</label>
-      <input id="favoritecolor" type="text" name="favoritecolor">
+      <label for="newpart">Add a word:</label>
+      <input id="newpart" type="text" name="newpart">
       <br>
       <input type="submit" value="Save">
     </form>
-     <% /* %><ul>
+    <ul>
       <% for (var i=0; i<data.length; i++){ %>
         <li>
-          <%= data[i].userName %> = <%=
-          data[i].favoriteColor %>
+          <%= data[i].tastefulUserName %> = <%=
+          data[i].newPart %>
         </li>
         <% } %>
-    </ul>  <% */ %>
+    </ul>
 
   </body>
 </html>

@@ -1,9 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var MarkerSchema = new Schema({
-    userName : String,
+var ColorSchema = new Schema({
+    colorUserName : String,
     favoriteColor: String
 }, {strict: true});
 
-module.exports = mongoose.model('marker', MarkerSchema );
+module.exports = mongoose.model('colors', ColorSchema );
