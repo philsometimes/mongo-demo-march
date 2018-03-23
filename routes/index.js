@@ -70,7 +70,9 @@ router.post('/sendtaste', function(req, res, next){
   console.log(JSON.stringify(req.body, null, 4));
   var newTastefulPart = new TastefulPart({
     tastefulUserName: req.body.name,
-    newPart: req.body.newpart
+    newPart: req.body.newpart,
+    timeStamp: (new Date()).getHours()+"h"+(new Date()).getMinutes()+"m"+(new Date()).getSeconds()+"s",
+
   });
   console.log(JSON.stringify(newTastefulPart, null, 4));
 
